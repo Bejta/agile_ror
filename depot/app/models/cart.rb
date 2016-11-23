@@ -13,4 +13,9 @@ class Cart < ActiveRecord::Base
         
         current_item
     end
+    
+    # method Array::sum() sums all members of array
+    def total_price
+       line_items.to_a.sum { |item| item.total_price }
+    end
 end
